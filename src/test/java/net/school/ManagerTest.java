@@ -19,7 +19,7 @@ public class ManagerTest {
         Cafeteria cafeteria = new Cafeteria();
         Manager manager = new Manager("Mike", "dave", "mikedave@gmail.com", cafeteria);
         manager.earnTokens(20);
-        cafeteria.buyLunch(manager);
+        cafeteria.buy(manager,new Lunch());
         assertEquals(1, manager.viewAllPurchases().size());
     }
 
@@ -35,7 +35,7 @@ public class ManagerTest {
         Cafeteria cafeteria = new Cafeteria();
         Manager manager = new Manager("Mike", "dave", "mikedave@gmail.com", cafeteria);
         manager.earnTokens(20);
-        cafeteria.buyLunch(manager);
+        cafeteria.buy(manager,new Lunch());
         assertEquals(6.00, manager.totalDailyTokensReceived());
     }
 

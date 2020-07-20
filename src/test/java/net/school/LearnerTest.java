@@ -237,4 +237,35 @@ public class LearnerTest {
         simba.updateBoughtNotes(biologyNotes);
         assertEquals(3, simba.getBoughtNotes().size());
     }
+
+    @Test
+    public void learnerIsRegisteredForSubject(){
+        Learner simba = new Learner("Simba", "Chippie", "simbachippie@tlk.co");
+        simba.register(Subject.PHYSICS);
+        assertTrue(simba.isRegisteredFor(Subject.PHYSICS));
+    }
+
+    @Test
+    public void learnerIsRegisteredForEnoughSubjects(){
+        Learner simba = new Learner("Simba", "Chippie", "simbachippie@tlk.co");
+        simba.register(Subject.PHYSICS);
+        assertFalse(simba.isRegisteredForEnoughSubjects());
+    }
+
+    @Test
+    public void learnerIsRegisteredForEnoughSubjectsTwo(){
+        Learner simba = new Learner("Simba", "Chippie", "simbachippie@tlk.co");
+        simba.register(Subject.PHYSICS);
+        simba.register(Subject.MATHEMATICS);
+        assertFalse(simba.isRegisteredForEnoughSubjects());
+    }
+
+    @Test
+    public void learnerIsRegisteredForEnoughSubjectsThree(){
+        Learner simba = new Learner("Simba", "Chippie", "simbachippie@tlk.co");
+        simba.register(Subject.PHYSICS);
+        simba.register(Subject.MATHEMATICS);
+        simba.register(Subject.BIOLOGY);
+        assertTrue(simba.isRegisteredForEnoughSubjects());
+    }
 }

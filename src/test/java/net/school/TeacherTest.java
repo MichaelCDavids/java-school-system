@@ -128,4 +128,26 @@ public class TeacherTest {
         muj.setTeaching(false);
         assertFalse(muj.isTeaching());
     }
+
+    @Test
+    public void teacherIsQualifiedFor(){
+        Teacher teacher = new Teacher("Spike","Lee","spikelee@konvi.co");
+
+        teacher.addQualifiedSubject(Subject.MATHEMATICS);
+
+        assertTrue(teacher.isQualifiedFor(Subject.MATHEMATICS));
+        assertFalse(teacher.isQualifiedFor(Subject.PHYSICS));
+    }
+
+    @Test
+    public void teacherLessonTaught(){
+        Teacher teacher = new Teacher("Spike","Lee","spikelee@konvi.co");
+
+        teacher.addQualifiedSubject(Subject.MATHEMATICS);
+
+        teacher.lessonTaught(5,false);
+
+
+
+    }
 }

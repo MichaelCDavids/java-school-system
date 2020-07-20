@@ -31,7 +31,7 @@ public class CafeteriaTest {
         Learner sylo = new Learner("Shaun", "Bongz", "sylobongz@gmail.com");
         sylo.earnTokens(100);
         Cafeteria cafe = new Cafeteria();
-        cafe.buyBreakFast(sylo);
+        cafe.buy(sylo,new BreakFast());
         assertEquals(4.00, cafe.getDailyTokensReceived());
     }
 
@@ -40,7 +40,7 @@ public class CafeteriaTest {
         Learner sylo = new Learner("Shaun", "Bongz", "sylobongz@gmail.com");
         sylo.earnTokens(100);
         Cafeteria cafe = new Cafeteria();
-        cafe.buyLunch(sylo);
+        cafe.buy(sylo,new Lunch());
         assertEquals(6.00, cafe.getDailyTokensReceived());
     }
 
@@ -49,8 +49,8 @@ public class CafeteriaTest {
         Learner sylo = new Learner("Shaun", "Bongz", "sylobongz@gmail.com");
         sylo.earnTokens(100);
         Cafeteria cafe = new Cafeteria();
-        cafe.buyDrink(sylo);
-        assertEquals(2.00, cafe.getDailyTokensReceived());
+        cafe.buy(sylo,new Drink());
+        assertEquals(3.00, cafe.getDailyTokensReceived());
     }
 
     @Test
@@ -58,7 +58,7 @@ public class CafeteriaTest {
         Learner sylo = new Learner("Shaun", "Bongz", "sylobongz@gmail.com");
         sylo.earnTokens(100);
         Cafeteria cafe = new Cafeteria();
-        cafe.buySnack(sylo);
-        assertEquals(3.00, cafe.getDailyTokensReceived());
+        cafe.buy(sylo,new AfternoonSnack());
+        assertEquals(2.00, cafe.getDailyTokensReceived());
     }
 }
