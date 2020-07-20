@@ -34,4 +34,14 @@ public class Teacher extends Person {
     public int getNumberOfLessonsTaught() {
         return numberOfLessonsTaught;
     }
+
+    public boolean isQualifiedFor(Subject subject){
+        return getQualifiedSubjects().contains(subject);
+    }
+
+    public void lessonTaught(int amountOfTokens, boolean isTeaching){
+        setTeaching(isTeaching);
+        earnTokens(amountOfTokens);
+        incrementNumberOfLessonsTaught();
+    }
 }

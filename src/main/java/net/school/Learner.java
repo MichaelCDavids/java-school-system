@@ -19,7 +19,7 @@ public class Learner extends Person {
 
     public void attend(Lesson lesson) {
         if (!isAttending()) {
-            if (getRegisteredSubjects().size() >= 3) {
+            if (isRegisteredForEnoughSubjects()) {
                 this.setAttending(true);
                 this.lessonsAttended.add(lesson);
             }
@@ -47,18 +47,22 @@ public class Learner extends Person {
     }
 
     public void purchaseLessonNotes(Learner learner, Notes notes) {
-        if (learner.getLessonNotes().contains(notes)) {
-            if (this.getRegisteredSubjects().contains(notes.getSubject())) {
+        if (hasLessonNotes(learner,notes)) {
+            if (isRegisteredFor(notes.getSubject())) {
                 this.useTokens(3);
                 learner.earnTokens(3);
                 updateBoughtNotes(notes);
                 return;
             }
-            learner.earnTokens(5);
             this.useTokens(5);
+            learner.earnTokens(5);
             updateBoughtNotes(notes);
             return;
         }
+    }
+
+    public boolean hasLessonNotes(Learner learner,Notes notes){
+        return learner.getLessonNotes().contains(notes);
     }
 
     public void updateBoughtNotes(Notes notes) {
@@ -67,6 +71,20 @@ public class Learner extends Person {
 
     public ArrayList<Notes> getBoughtNotes() {
         return boughtNotes;
+    }
+
+    public boolean isRegisteredFor(Subject subject) {
+        return getRegisteredSubjects().contains(subject);
+    }
+
+    public boolean isRegisteredForEnoughSubjects(){
+        return getRegisteredSubjects().size() >= 3;
+    }
+
+    public void attendedLesson(Notes notes, boolean isAttending, int tokens) {
+        updateLessonNotes(notes);
+        setAttending(isAttending);
+        earnTokens(tokens);
     }
 
 }

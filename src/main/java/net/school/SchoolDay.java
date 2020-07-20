@@ -108,15 +108,14 @@ public class SchoolDay {
         englishLesson.end();
 
         // Breakfast
-
-        cafeteria.buyBreakFast(learnerOne);
-        cafeteria.buyBreakFast(learnerTwo);
-        cafeteria.buyBreakFast(learnerThree);
-        cafeteria.buyBreakFast(learnerFour);
-        cafeteria.buyBreakFast(teacherOne);
-        cafeteria.buyBreakFast(teacherTwo);
-        cafeteria.buyBreakFast(teacherThree);
-        cafeteria.buyBreakFast(teacherFour);
+        cafeteria.buy(learnerOne, new BreakFast());
+        cafeteria.buy(learnerTwo, new BreakFast());
+        cafeteria.buy(learnerThree, new BreakFast());
+        cafeteria.buy(learnerFour, new BreakFast());
+        cafeteria.buy(teacherOne, new BreakFast());
+        cafeteria.buy(teacherTwo, new BreakFast());
+        cafeteria.buy(teacherThree, new BreakFast());
+        cafeteria.buy(teacherFour, new BreakFast());
 
         englishLesson.acceptLearner(learnerOne);
         englishLesson.acceptLearner(learnerTwo);
@@ -198,29 +197,31 @@ public class SchoolDay {
         biologyLesson.end();
 
 
-        cafeteria.buyLunch(learnerTwo);
-        cafeteria.buyLunch(learnerFour);
-        cafeteria.buyLunch(learnerFive);
-        cafeteria.buyLunch(learnerSix);
-        cafeteria.buyLunch(teacherOne);
-        cafeteria.buyLunch(learnerOne);
-        cafeteria.buyLunch(teacherFive);
-        cafeteria.buyLunch(teacherSix);
+        cafeteria.buy(learnerTwo,new Lunch());
+        cafeteria.buy(learnerFour,new Lunch());
+        cafeteria.buy(learnerFive,new Lunch());
+        cafeteria.buy(learnerSix,new Lunch());
+        cafeteria.buy(teacherOne,new Lunch());
+        cafeteria.buy(learnerOne,new Lunch());
+        cafeteria.buy(teacherFive,new Lunch());
+        cafeteria.buy(teacherSix,new Lunch());
 
 
-        cafeteria.buyDrink(learnerTwo);
-        cafeteria.buyDrink(learnerThree);
-        cafeteria.buyDrink(learnerFour);
-        cafeteria.buyDrink(teacherTwo);
-        cafeteria.buyDrink(teacherThree);
-        cafeteria.buyDrink(teacherFour);
+        cafeteria.buy(learnerTwo,new Drink());
+        cafeteria.buy(learnerThree,new Drink());
+        cafeteria.buy(learnerFour,new Drink());
+        cafeteria.buy(teacherTwo,new Drink());
+        cafeteria.buy(teacherThree,new Drink());
+        cafeteria.buy(teacherFour,new Drink());
+        cafeteria.buy(teacherFive,new Drink());
 
-        cafeteria.buySnack(learnerTwo);
-        cafeteria.buySnack(teacherFive);
-        cafeteria.buySnack(teacherOne);
-        cafeteria.buySnack(teacherTwo);
-        cafeteria.buySnack(learnerFive);
-        cafeteria.buySnack(learnerOne);
+
+        cafeteria.buy(learnerTwo,new AfternoonSnack());
+        cafeteria.buy(teacherFive,new AfternoonSnack());
+        cafeteria.buy(teacherOne,new AfternoonSnack());
+        cafeteria.buy(teacherTwo,new AfternoonSnack());
+        cafeteria.buy(learnerFive,new AfternoonSnack());
+        cafeteria.buy(learnerOne,new AfternoonSnack());
 
 
         // End of day

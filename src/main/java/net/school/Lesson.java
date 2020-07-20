@@ -29,8 +29,8 @@ public class Lesson {
     }
 
     public boolean acceptLearner(Learner learner) {
-        if (learner.getRegisteredSubjects().size() >= 3) {
-            if (learner.getRegisteredSubjects().contains(subject)) {
+        if (isRegisteredForEnoughSubjects(learner)) {
+            if (learner.isRegisteredFor(subject)) {
                 if (!learner.isAttending()) {
                     learners.add(learner);
                     return true;
@@ -54,13 +54,13 @@ public class Lesson {
 
     public void end() {
         for (Learner learner : learners) {
-            learner.updateLessonNotes(notes);
-            learner.setAttending(false);
-            learner.earnTokens(3);
+            learner.attendedLesson(notes,false,3);
         }
-        teacher.incrementNumberOfLessonsTaught();
-        teacher.earnTokens(5);
-        teacher.setTeaching(false);
+        teacher.lessonTaught(5,false);
         school.addSubjectsTaught(subject);
+    }
+
+    private boolean isRegisteredForEnoughSubjects(Learner learner){
+        return learner.getRegisteredSubjects().size() >= 3;
     }
 }

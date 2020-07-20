@@ -2,29 +2,29 @@ package net.school;
 
 public class Purchase {
     private Person person;
-    private double cost;
-    private String itemBought;
+//    private double cost;
+    private Product product;
 
-    public Purchase(Person person, double cost, String itemBought) {
+    public Purchase(Person person, Product product) {
         this.person = person;
-        this.cost = cost;
-        this.itemBought = itemBought;
+//        this.cost = cost;
+        this.product = product;
     }
 
     public Person getPerson() {
         return person;
     }
 
-    public double getCost() {
-        return cost;
-    }
+//    public double getCost() {
+//        return cost;
+//    }
 
-    public String getItemBought() {
-        return itemBought;
+    public Product getItemBought() {
+        return product;
     }
 
     @Override
     public String toString() {
-        return "\n===================\nPurchase at Cafeteria\nItem:" + getItemBought() + "\nCost:" + getCost() + "\nPerson: " + getPerson().getFirstName() + " " + getPerson().getLastName() + "\n=====================";
+        return "\n===================\nPurchase at Cafeteria\nItem:" + getItemBought().getType() + "\nCost:" + product.getCost() + "\nPerson: " + getPerson().getFirstName() + " " + getPerson().getLastName() + "\n=====================";
     }
 }
